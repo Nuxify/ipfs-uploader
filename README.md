@@ -3,6 +3,10 @@ An IPFS upload script using Moralis
 
 > Before starting, you need to secure a WEB3 API KEY first from https://admin.moralis.io/
 
+## Important Notes
+
+Moralis, through its IPFS gateway, doesn't allow uploading batches > 1GB. For uploading huge assets or collections especially with NFT projects, we recommend using [NFT Storage](https://nft.storage) instead.
+
 ## Local Development
 
 Setup the .env file first
