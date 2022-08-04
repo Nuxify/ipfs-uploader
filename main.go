@@ -23,7 +23,10 @@ func main() {
 	}
 
 	// uncomment this to upload contract uri to IPFS
-	uploadContractURI()
+	//uploadContractURI()
+
+	// uncomment this to upload default uri to IPFS
+	uploadDefaultURI()
 
 	// uncomment this to upload images to IPFS
 	//uploadImages()
@@ -31,6 +34,28 @@ func main() {
 
 func uploadContractURI() {
 	path := "contracts/contract_uri"
+	data := `{"description":"<add project description here>","external_link":"<add external link here>","image":"<add image ipfs/url here>","name":"<add project name here>"}`
+
+	var ipfsArr []http.IPFSRequest
+
+	ipfsArr = append(ipfsArr, http.IPFSRequest{
+		Path:    path,
+		Content: base64Encode(data),
+	})
+
+	// upload to moralis
+	var response interface{}
+
+	err := http.Post(fmt.Sprintf("%s/ipfs/uploadFolder", v2MoralisBaseURL), ipfsArr, &response)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println(response)
+}
+
+func uploadDefaultURI() {
+	path := "contracts/default_uri"
 	data := `{"description":"<add project description here>","external_link":"<add external link here>","image":"<add image ipfs/url here>","name":"<add project name here>"}`
 
 	var ipfsArr []http.IPFSRequest
