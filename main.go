@@ -34,7 +34,7 @@ func main() {
 
 func uploadContractURI() {
 	path := "contracts/contract_uri"
-	data := `{"description":"<add project description here>","external_link":"<add external link here>","image":"<add image ipfs/url here>","name":"<add project name here>"}`
+	data := `{"description":"<add project description here>","external_link":"<add external link here>","image":"<add image ipfs/url here>","name":"<add project name here>","seller_fee_basis_points": 500, "fee_recipient": "<address>"}`
 
 	var ipfsArr []http.IPFSRequest
 
